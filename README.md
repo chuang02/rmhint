@@ -2,6 +2,8 @@
 
 A safer rm for MacOS/Linux
 
+!["Screenshot"](./screenshot.jpeg)
+
 ## Usage
 
 ```bash
