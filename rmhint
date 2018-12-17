@@ -3,16 +3,16 @@
 if [ "$1" == "-rf" ];
 then
     echo -e "\n\033[1mAre You Sure About Removing\033[91m" $2 "\033[39m?"
-    echo -e "########################################\n"
-    echo -e "Current Path is \033[91m"`pwd`"\033[39m\nContains: \033[34m"`ls`"\033[39m\n"
+    echo -e "########################################"
+    #echo -e "Current Path is \033[91m"`pwd`"\033[39m\nContains: \033[34m"`ls`"\033[39m\n"
     echo -e "Removing Path is \033[91m"`realpath $2`
     echo -e -n "\033[39mContains: \033[34m" 
 
     if [ "`ls $2`" == "" ];
     then
-        echo -e "\033[90mPath is Empty\033[39m\n"
+        echo -e "\033[90mPath is Empty\033[39m"
     else
-        echo -e `ls $2` "\033[39m\n"
+        echo -e `ls $2` "\033[39m"
     fi
 
     echo "########################################"
@@ -32,9 +32,9 @@ then
     fi
 else
     echo -e "\n\033[1mAre You Sure About Removing\033[91m" $1 "\033[39m?"
-    echo -e "########################################\n"
+    echo -e "########################################"
     echo -e "Removing Target is \033[91m"`realpath $1`
-    echo -e "\033[39m\n########################################"
+    echo -e "\033[39m########################################"
     echo -n "[y/n]: "
 
     read answer
@@ -52,4 +52,4 @@ else
 
 fi
 
-echo -e "\033[0m"
+echo -e -n "\033[0m"
