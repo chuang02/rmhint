@@ -1,0 +1,55 @@
+#!/bin/bash
+
+if [ "$1" == "-rf" ];
+then
+    echo -e "\n\033[1mAre You Sure About Removing\033[91m" $2 "\033[39m?"
+    echo -e "########################################\n"
+    echo -e "Current Path is \033[91m"`pwd`"\033[39m\nContains: \033[34m"`ls`"\033[39m\n"
+    echo -e "Removing Path is \033[91m"`realpath $2`
+    echo -e -n "\033[39mContains: \033[34m" 
+
+    if [ "`ls $2`" == "" ];
+    then
+        echo -e "\033[90mPath is Empty\033[39m\n"
+    else
+        echo -e `ls $2` "\033[39m\n"
+    fi
+
+    echo "########################################"
+    echo -n "[y/n]: "
+
+    read answer
+
+    #echo -e "\033[92m"
+    echo ""
+
+    if [ "$answer" == "y" ];
+    then
+        echo -e "Removing..."
+        /bin/rm -rf $2
+    else
+        echo -e "Operation Terminated."
+    fi
+else
+    echo -e "\n\033[1mAre You Sure About Removing\033[91m" $1 "\033[39m?"
+    echo -e "########################################\n"
+    echo -e "Removing Target is \033[91m"`realpath $1`
+    echo -e "\033[39m\n########################################"
+    echo -n "[y/n]: "
+
+    read answer
+
+    echo ""
+
+
+    if [ "$answer" == "y" ];
+    then
+        echo -e "Removing..."
+        /bin/rm $1
+    else
+        echo -e "Operation Terminated."
+    fi
+
+fi
+
+echo -e "\033[0m"
