@@ -30,6 +30,9 @@ then
     else
         echo -e "Operation Terminated."
     fi
+elif [ "$1" == "" ]
+then 
+    echo -e "\nFile/Path not Specified.\n"
 else
     echo -e "\n\033[1mAre You Sure About Removing\033[91m" $1 "\033[39m?"
     echo -e "---------------------------------------------"
